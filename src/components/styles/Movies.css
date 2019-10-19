@@ -1,0 +1,18 @@
+.movieData h2{
+    font-size: 15px;
+    color: #687b82;
+}
+
+.movieData p{
+    color: #687b82;
+}
+
+.movieInfo p{
+    color: #3d484c;
+    font-weight: 500;
+}
+
+.cardMovie{
+    box-shadow: 2px 6px 18px -6px rgba(0,0,0,0.5);
+    height: 100%;
+}
