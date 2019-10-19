@@ -18,13 +18,12 @@ export default class Movies extends Component{
         const response = await fetch('https://api.themoviedb.org/3/genre/movie/list?api_key=58e798bf28ce921eb570c03fb0d70586')
         const info = await response.json()
         this.setState({genre: info.genres})
-        console.log(this.state.genre)
     }
 
     render(){
         const allMovies = this.state.movies.map(movie =>{
                 return(
-                    <div className="col-6 p-4">
+                    <div className="col-6 col-sm-12 p-4" key={movie.id}>
                         <div className="row cardMovie">
                             <div className="col-4">
                                 <img src="http://image.tmdb.org/t/p/w185/adw6Lq9FiC9zjYEpOqfq03ituwp.jpg" className="img-fluid"/>
@@ -45,7 +44,7 @@ export default class Movies extends Component{
                                         <button type="button" className="btn btn-outline-info">Show Trailer</button>
                                     </div>
                                     <div className="col text-right">
-                                        <p>Add to Favorites &nbsp;<i class="fa fa-heart"></i></p>
+                                        <p>Add to Favorites &nbsp;<i className="fa fa-heart"></i></p>
                                     </div>
                                 </div>
                             </div>

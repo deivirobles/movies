@@ -1,17 +1,16 @@
-import React, { Component } from 'react'
+import React from 'react'
 
+const SearchBar = (props) => {
+  return (
+    <form action="" onSubmit={props.handleSubmit}>
+      <input 
+          placeholder="Search for a movie, series and videos" 
+          type="text" 
+          className="form-control" 
+          onChange={props.handleChange}
+        />
+    </form>
+  )
+}
 
-export default class SearchBar extends Component{
-render(){
-return(
-<form action="">
-<div className="input-group mb-3">
-	<div className="input-group-prepend">
-		<span className="input-group-text" id="basic-addon1"><i className="fa fa-search"></i></span>
-	</div>
-	<input placeholder="Search for a movie, series and videos" type="text" className="form-control"/>
-</div>
-</form>
-)
-}
-}
+export default SearchBar;
