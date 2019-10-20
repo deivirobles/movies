@@ -5,15 +5,22 @@ import Movie from './Movie'
 const MoviesResult = (props) => {
     return(
     <div className="row">
-        <div className="col-12">
             {
                 props.movies.map((movie, i)=>{
                     return (
-                        <Movie key={i} image={movie.poster_path}/>
+                        <Movie 
+                        key={i} 
+                        image={movie.poster_path} 
+                        title={movie.title} 
+                        voteAverage={movie.vote_average}
+                        relaseDate={movie.release_date}
+                        genre={movie.genre_ids}
+                        overview={movie.overview}
+                        />
                     )
                 })
             }
-         </div>
+
     </div>
     )
 }
