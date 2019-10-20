@@ -2,6 +2,8 @@ import React, {Component}  from 'react';
 import Navbar from './components/Navbar'
 import SearchBar from './components/SearchBar'
 import Movies from './components/Movies'
+import MovieResult from './components/MoviesResult'
+
 import './App.css';
 
 class App extends Component {
@@ -33,7 +35,8 @@ class App extends Component {
     <div className="container-fluid">
       <Navbar />
       <SearchBar handleSubmit={this.handleSubmit} handleChange={this.handleChange}/>
-      <Movies/>
+      <MovieResult movies={this.state.movies}/>
+
     </div>
   );
 }
