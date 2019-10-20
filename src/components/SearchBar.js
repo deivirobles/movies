@@ -5,7 +5,8 @@ const SearchBar = (props) => {
     <form action="" onSubmit={props.handleSubmit}>
       <input 
           placeholder="Search for a movie, series and videos" 
-          type="text" 
+          type="text"
+          required 
           className="form-control" 
           onChange={props.handleChange}
         />

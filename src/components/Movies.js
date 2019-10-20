@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Style from './styles/Movies.css'
+
 
 
 export default class Movies extends Component{
@@ -21,7 +21,7 @@ export default class Movies extends Component{
                     <div className="col-md-6 col-sm-12 p-4" key={movie.id}>
                         <div className="row cardMovie">
                             <div className="col-4">
-                                <img src="http://image.tmdb.org/t/p/w185/adw6Lq9FiC9zjYEpOqfq03ituwp.jpg" className="img-fluid"/>
+                                <img src={`http://image.tmdb.org/t/p/w185/${movie.poster_path}`} className="img-fluid" alt=""/>
                             </div>
                             <div className="col movieData">
                                 <div className="row">
