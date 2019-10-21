@@ -11,9 +11,9 @@ const MoviesResult = (props) => {
                         <Movie 
                         key={i} 
                         image={movie.poster_path} 
-                        title={movie.title} 
+                        title={movie.media_type == "tv" ? movie.name : movie.title}
                         voteAverage={movie.vote_average}
-                        relaseDate={movie.release_date}
+                        relaseDate={movie.media_type == "tv" ? movie.first_air_date : movie.release_date}
                         genre={movie.genre_ids}
                         overview={movie.overview}
                         />

@@ -1,23 +1,23 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react'
+import { NavLink } from 'react-router-dom';
+import { Navbar, Nav } from 'react-bootstrap';
 
 import Logo from './../images/logo.png'
-import NavSeries from './NavSeries'
 
-const Navbar = () => {
-  return(
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <div className="container-fluid">
-        <Link to='/' className="navbar-brand"><img src={Logo} alt="Logo"/></Link>
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <NavSeries/>
-        </div>
-      </div>
-    </nav>
-  )
+export default class Navigation extends Component{
+  render(){
+    return(
+      <Navbar bg="light" expand="lg">
+        <Navbar.Brand href="/"><img src={Logo} alt="Logo"/></Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ml-auto">
+            <Nav.Link href="/movies">Movies</Nav.Link>
+            <Nav.Link href="/series">TV Shows</Nav.Link>
+            <Nav.Link href="/">Favorites</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+    )
+  }
 }
-
-export default Navbar;

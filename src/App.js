@@ -1,11 +1,13 @@
 import React, {Component}  from 'react';
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+
 
 import Navbar from './components/Navbar'
 import SearchBar from './components/SearchBar'
 import Movies from './components/Movies'
 import MovieResult from './components/MoviesResult'
 import Pagination from './common/Pagination'
+import Series from './components/Series'
 
 import './App.css';
 
@@ -34,7 +36,10 @@ class App extends Component {
   }
 
   handleChange = (e)=>{
+    e.preventDefault();
+
     this.setState({ searchTerms: e.target.value})
+    
   }
 
   nextPage = (pageNumber) =>{
@@ -45,37 +50,24 @@ class App extends Component {
     })
   }
 
-  viewMovieInfo = (id) => {
-    const filterMovie = this.state.movies.filter(movie => movie.id === id)
-
-    const newCurrentMovie = filterMovie.length > 0 ? filterMovie[0] : null
-
-    this.setState({ currentMovie: filterMovie })
-  }
-
-  closeMovieIfo = () => {
-    this.setState({ currentMovie: null })
-  }
-
-
   render(){
     const numberPages = Math.floor(this.state.totalResult / 20);
   return (
     <BrowserRouter>
       <div className="container-fluid">
-        <Navbar />
-        <SearchBar handleSubmit={this.handleSubmit} handleChange={this.handleChange}/>
-        {
-          this.state.searchTerms.length === 0 
-          ? <Movies />
-          : <MovieResult movies={this.state.movies}/>
-        }
-        
-        { 
-          this.state.totalResult > 20 
-          ? <Pagination pages={numberPages} nextPage={this.nextPage} currentPage={this.state.currentPage}/>
-          : ''
-        }
+      <Navbar/>
+      <SearchBar handleSubmit={this.handleSubmit} handleChange={this.handleChange}/>                
+      <MovieResult movies={this.state.movies}/>
+      { 
+        this.state.totalResult > 20 
+        ? <Pagination pages={numberPages} nextPage={this.nextPage} currentPage={this.state.currentPage}/>
+        : ''
+      }
+      <Switch>
+        <Route path="/" component={Movies} exact />
+        <Route path="/movies" component={Movies}/>
+        <Route path="/series" component={Series}/>
+      </Switch>       
       </div>
     </BrowserRouter>
   );
